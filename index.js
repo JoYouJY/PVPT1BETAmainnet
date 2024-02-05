@@ -496,14 +496,14 @@ window.getAggressiveGasPrice = async function() {
 
 // Define the Fantom chain details
 const fantomChain = {
-  chainId: "0x" + (64165).toString(16), // Convert decimal to hexadecimal
-  chainName: "Fantom Sonic Builders Testnet", // Network name
-  rpcUrls: ["https://rpc.sonic.fantom.network/"], // RPC URL
+  chainId: "0x" + (250).toString(16), // Convert decimal to hexadecimal
+  chainName: "Fantom Opera", // Network name
+  rpcUrls: ["https://rpc.ankr.com/fantom"], // RPC URL
   nativeCurrency: {
     symbol: "FTM", // Native token symbol
     decimals: 18, // Native token decimals
   },
-  blockExplorerUrls: ["https://public-sonic.fantom.network"], // Block explorer URL
+  blockExplorerUrls: ["https://ftmscan.com/"], // Block explorer URL
 };
 
 // Connect to the Fantom chain using ethers.js
