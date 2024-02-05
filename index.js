@@ -498,7 +498,7 @@ window.getAggressiveGasPrice = async function() {
 const fantomChain = {
   chainId: "0x" + (250).toString(16), // Convert decimal to hexadecimal
   chainName: "Fantom Opera", // Network name
-  rpcUrls: ["https://rpc.ankr.com/fantom"], // RPC URL
+  rpcUrls: ["https://rpc.ankr.com/fantom/"], // RPC URL
   nativeCurrency: {
     symbol: "FTM", // Native token symbol
     decimals: 18, // Native token decimals
