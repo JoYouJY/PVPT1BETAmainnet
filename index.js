@@ -150,7 +150,7 @@ window.JsCallFunction = JsCallFunction;
 async function JsGetFunction(type, arg_string){
   console.log("JsGetFunction")
   console.log(type)
-  console.log(arg_string)
+  // console.log(arg_string)
 
 
   arg_string = arg_string.toString()
@@ -333,12 +333,13 @@ try {
 		  // Wait for the transaction to be mined and get receipt
       console.log(transaction.hash);
       response(response_type.HASH, method);
-      const receipt = await getTransactionReceiptWithRetry(transaction.hash, 35);
+      const receipt = await getTransactionReceiptWithRetry(transaction.hash, 120);
       console.log("USE OTHER METHOD",receipt )
       const endTime2 = new Date();
 		  const timeTaken2 = endTime2 - startTime;
       console.log('First Time taken (ms):', timeTaken2);
       //----------------------------------------
+      console.log('log', receipt.logs);
       const parsedLogs = [];
       for (const log of receipt.logs) {
         const parsedLog = contracts.interface.parseLog(log);
@@ -380,9 +381,9 @@ function delay(ms) {
 async function getTransactionReceiptWithRetry(txHash, maxRetries) {
   let retries = 0;
   let txReceipt = null;
-  await delay(300); // Wait for 0.5 seconds before retrying
+  await delay(800); // Wait for 0.5 seconds before retrying
   while (retries < maxRetries) {
-    await delay(300); // Wait for 0.5 seconds before retrying
+    await delay(450); // Wait for 0.5 seconds before retrying
     txReceipt = await providerNEW.getTransactionReceipt(txHash);
 
     if (txReceipt) {
