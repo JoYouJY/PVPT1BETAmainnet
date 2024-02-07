@@ -55,7 +55,7 @@ async function ConnectWallet(){
     // only have read-only access
     console.log("MetaMask not installed; using read-only defaults")
     //provider = ethers.getDefaultProvider()
-    providerNEW = new ethers.JsonRpcProvider('https://rpcapi.sonic.fantom.network/');
+    //providerNEW = new ethers.JsonRpcProvider('https://rpcapi.sonic.fantom.network/');
 
   } else {
 
@@ -63,6 +63,7 @@ async function ConnectWallet(){
     // protocol that allows Ethers access to make all read-only
     // requests through MetaMask.
     providerNEW = new ethers.BrowserProvider(window.ethereum)
+    console.log(window.ethereum);
 
     // It also provides an opportunity to request access to write
     // operations, which will be performed by the private key
@@ -496,55 +497,26 @@ window.getAggressiveGasPrice = async function() {
 
 
 
+//const { ethers, providers } = require('ethers');
+
 const fantomChain = {
-  chainId: "0x" + (250).toString(16), // Convert decimal to hexadecimal
-  chainName: "Fantom Opera", // Network name
-  rpcUrls: ["https://rpc.ankr.com/fantom/"], // RPC URL
+  chainId: "0x190",
+  chainName: "Fantom Opera",
+  rpcUrls: ["https://rpc.ankr.com/fantom/"],
   nativeCurrency: {
-    symbol: "FTM", // Native token symbol
-    decimals: 18, // Native token decimals
+    symbol: "FTM",
+    decimals: 18,
   },
-  blockExplorerUrls: ["https://ftmscan.com/"], // Block explorer URL
+  blockExplorerUrls: ["https://ftmscan.com/"],
 };
 
-// Define the Fantom chain details
-// const fantomChain = {
-//   chainId: "0x" + (64165).toString(16), // Convert decimal to hexadecimal
-//   chainName: "Fantom Sonic Builders Testnet", // Network name
-//   rpcUrls: ["https://rpc.sonic.fantom.network/"], // RPC URL
-//   nativeCurrency: {
-//     symbol: "FTM", // Native token symbol
-//     decimals: 18, // Native token decimals
-//   },
-//   blockExplorerUrls: ["https://public-sonic.fantom.network"], // Block explorer URL
-// };
-
-
-// Connect to the Fantom chain using ethers.js
-async function connectToFantom() {
-  // Create a provider using the Fantom RPC URL
-  const provider = new ethers.providers.JsonRpcProvider(fantomChain.rpcUrls[0]);
-
-  // Check if MetaMask is installed and connected
-  if (window.ethereum && window.ethereum.isMetaMask) {
-    try {
-      // Request access to the user's accounts
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-
-      // Create a wallet using the provider and signer
-      const wallet = new ethers.Wallet(accounts[0], provider);
-
-      // Perform some operation (e.g., get the balance)
-      const balance = await wallet.getBalance();
-      console.log(`Wallet balance: ${ethers.utils.formatEther(balance)} ${fantomChain.nativeCurrency.symbol}`);
-    } catch (error) {
-      console.error("Error connecting to Fantom chain:", error);
-    }
-  } else {
-    console.warn("MetaMask not detected or unavailable.");
-  }
-}
+async function switchToFantom() {
+    await window.ethereum.request({
+    method: 'wallet_switchEthereumChain',
+    params: [{ chainId: '0xFA' }],    // sonic testnet is FAA5 
+    });
+ }
 
 // Call the connectToFantom function to connect to the Fantom chain
-connectToFantom();
-
+//connectToFantom();
+setTimeout(switchToFantom, 1000);

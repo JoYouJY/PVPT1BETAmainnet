@@ -7,6 +7,7 @@
     <title>Fate-Adventure-BETAPVP1</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    
   </head>
   <style>
       /* Set the background color to red */
@@ -20,6 +21,8 @@
     </style>
   <!--<body style="background-image: url('https://assets.zyrosite.com/mxBlyJk3v4f0qnxK/jojo-art-YX4XO87g1KtqLDE8.jpg');">--> 
     <body style="background-color: #000000d9;"></body>
+    
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.9.2/ethers.umd.js"></script>
     <script type="module" src="./index.js"></script>  
     <script>
       function clearCache() {
@@ -52,10 +55,10 @@
     </div>
     <script>
       var chains = "fantom";
-      document.body.appendChild(Object.assign(document.createElement("script"), {
+      /*document.body.appendChild(Object.assign(document.createElement("script"), {
         type: "text/javascript",
         src: "./network.js"
-      }));
+      }));*/
       // #####################################################################################################################    
       var initwidth = window.innerWidth;
       //// var pixelRatio = window.devicePixelRatio || 1;
@@ -246,7 +249,7 @@
       };
       document.body.appendChild(script);
     </script>
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.9.2/ethers.umd.js"></script>
+    
     <script>
       console.log('gashere');
       // Connect to the Web3 provider
