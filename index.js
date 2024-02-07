@@ -511,10 +511,24 @@ const fantomChain = {
 };
 
 async function switchToFantom() {
+  try{
     await window.ethereum.request({
     method: 'wallet_switchEthereumChain',
     params: [{ chainId: '0xFA' }],    // sonic testnet is FAA5 
     });
+  }catch (error) {
+    // Handle errors appropriately:
+    if (error.code === 4902) { // Check for "User rejected the request" error code
+      console.error("User rejected the network switch request.");
+      // Optionally display a user-friendly message explaining the situation
+    } else if (error.code === 4901) { // Check for "Chain not found" error code
+      console.error("Fantom Chain not found in your wallet.");
+      // Provide clear instructions on how to add the Fantom Chain (e.g., link to a guide)
+    } else {
+      console.error("Error switching to Fantom Chain:", error);
+      // Optionally display a generic error message for other unexpected errors
+    }
+  }
  }
 
 // Call the connectToFantom function to connect to the Fantom chain
