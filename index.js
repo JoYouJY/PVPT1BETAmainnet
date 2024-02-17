@@ -50,7 +50,18 @@ async function ConnectWallet(){
     // requests through MetaMask.
     providerNEW = new ethers.BrowserProvider(window.ethereum)
     console.log(window.ethereum);
+    const network = await providerNEW.getNetwork();
+    var chainId = network.chainId;
+    // Convert chainId to a number before comparison
+    chainId = parseInt(chainId, 10);
+    console.log("Chain ID:", chainId);
 
+    // Check if chain ID is not 250
+    if (chainId !== MasterChainID) {
+      switchToFantom();
+      alert("Switch to Fantom Network before Connecting."); // Display alert pop-up
+      return;
+    }
     // It also provides an opportunity to request access to write
     // operations, which will be performed by the private key
     // that MetaMask manages for the user.
@@ -241,6 +252,7 @@ async function readContract(id, method, abi, contract, args) {
 //---------------------------------- SEND --------------------------------------------------------------------------------
 async function sendContract(id, method, abi, contract, args, value, gasLimit, gasPrice) {
   // Get network object
+  providerNEW = new ethers.BrowserProvider(window.ethereum);
   const network = await providerNEW.getNetwork();
   var chainId = network.chainId;
   // Convert chainId to a number before comparison
@@ -249,7 +261,8 @@ async function sendContract(id, method, abi, contract, args, value, gasLimit, ga
 
   // Check if chain ID is not 250
   if (chainId !== MasterChainID) {
-    response(response_type.ERROR, method + "_%%_" + "wrong RPC, switch to Fantom Mainnet and Restart/Refresh(F5).");
+    switchToFantom();
+    response(response_type.ERROR, method + "_%%_" + "wrong RPC, switch to Fantom Network and Retry.");
   } else {
     //const from = (await web3.eth.getAccounts())[0];
     const contracts = new ethers.Contract(contract, abi, providerNEW);
