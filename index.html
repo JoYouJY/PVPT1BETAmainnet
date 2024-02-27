@@ -20,7 +20,7 @@
       }
     </style>
   <!--<body style="background-image: url('https://assets.zyrosite.com/mxBlyJk3v4f0qnxK/jojo-art-YX4XO87g1KtqLDE8.jpg');">--> 
-    <body style="background-color: #000111d9;"></body>
+    <body style="background-color: #000000d9;"></body>
     
     <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.9.2/ethers.umd.js"></script>
     <script type="module" src="./index.js"></script>  
@@ -117,8 +117,9 @@
           //body.style.width = 1280/ pixelRatio+'px';
           mainCanvas.style.width = 1280 / pixelRatio + 'px';
           mainCanvas.style.height = 720 / pixelRatio + 'px';
-          document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + 1280 / pixelRatio + 'px, initial-scale=' + 1);
-          document.body.style.zoom = (1280 / pixelRatio) / window.innerWidth * 100 + "%";
+          //document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + 1280 / pixelRatio + 'px, initial-scale=' + 1);
+          document.body.style.zoom = 1280  / window.innerWidth * 100 + "%";
+          //document.body.style.zoom = (1280 / pixelRatio) / window.innerWidth * 100 + "%";
           if (document.getElementById("unity-container").clientHeight < window.innerHeight) {
             var Heightoffset = (window.innerHeight - document.getElementById("unity-container").clientHeight) / 2;
           } else {
@@ -131,7 +132,7 @@
           //myDiv.style.height = Heightoffset + 'px';
           //remove fullscreen mode for Mobile since the size will be wrong.
           
-        } else {
+        } else { 
           var rotateButton = document.getElementById("unity-rotate-button");
           rotateButton.style.display = "none";
 
