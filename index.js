@@ -496,7 +496,7 @@ async function switchToFantom() {
 // Call the connectToFantom function to connect to the Fantom chain
 //connectToFantom();
 setTimeout(switchToFantom, 1000);
-
+/*
 //Resize Canvas
 document.addEventListener("DOMContentLoaded", function() {
   
@@ -505,7 +505,7 @@ document.addEventListener("DOMContentLoaded", function() {
   console.log("resizeclicked");
 
 });
-
+*/
 var isHorizontal = true;
 function rotateCanvas() {
   console.log("resize");
