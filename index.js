@@ -497,13 +497,14 @@ async function switchToFantom() {
 //connectToFantom();
 setTimeout(switchToFantom, 1000);
 
-//Resize Canvas
-document.addEventListener("DOMContentLoaded", function() {
-  
-  // Add click event listener to the button
-  document.getElementById("unity-rotate-button").addEventListener("click", rotateCanvas);
-  console.log("resizeclicked");
+// Get a reference to the button element
+const rotateButton = document.getElementById("unity-rotate-button");
 
+// Add a click event listener to the button
+rotateButton.addEventListener("click", function() {
+  // Call the rotateCanvas function here
+  rotateCanvas();
+  console.log("Rotated"); // Optional for debugging
 });
 
 var isHorizontal = true;
