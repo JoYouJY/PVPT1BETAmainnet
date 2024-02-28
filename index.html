@@ -71,8 +71,8 @@
       // mainDiv.style.height = 720 / pixelRatio + 'px';
       var pixelRatio = window.devicePixelRatio || 1;
       var mainCanvas = document.getElementById('unity-canvas');
-      mainCanvas.style.width = 1 / pixelRatio + 'px';
-      mainCanvas.style.height = 1 / pixelRatio + 'px';
+      mainCanvas.style.width = 1280 + 'px';
+      mainCanvas.style.height = 720 + 'px';
 
       function resize() {
         if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
@@ -115,14 +115,14 @@
           }
           // Set the new width and height of the canvas
           //body.style.width = 1280/ pixelRatio+'px';
-          mainCanvas.style.width = 1280 / pixelRatio + 'px';
+ /*         mainCanvas.style.width = 1280 / pixelRatio + 'px';
           mainCanvas.style.height = 720 / pixelRatio + 'px';
           //document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + 1280 / pixelRatio + 'px, initial-scale=' + 1);
           document.body.style.zoom = 1280  / window.innerWidth * 100 + "%";
           //document.body.style.zoom = (1280 / pixelRatio) / window.innerWidth * 100 + "%";
           if (document.getElementById("unity-container").clientHeight < window.innerHeight) {
             var Heightoffset = (window.innerHeight - document.getElementById("unity-container").clientHeight) / 2;
-          } else {
+        */  } else {
             var Heightoffset = 0;
           }
           //const myDiv = document.getElementById('myDiv');
