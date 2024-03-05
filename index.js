@@ -495,7 +495,7 @@ async function switchToFantom() {
 
 // Call the connectToFantom function to connect to the Fantom chain
 //connectToFantom();
-setTimeout(switchToFantom, 4127);
+
 
 // Get a reference to the button element
 const rotateButton = document.getElementById("unity-rotate-button");
